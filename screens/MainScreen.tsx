@@ -1,11 +1,14 @@
 import {View, Text, ImageBackground, TouchableOpacity} from 'react-native';
 import React from 'react';
-import StyleGuide from '../data/colors';
+import StyleGuide from '../data/StyleGuide';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import {useNavigation} from '@react-navigation/native';
+
 export default function MainScreen() {
+  const navigation = useNavigation();
   return (
     <ImageBackground
       style={{flex: 1}}
@@ -26,12 +29,7 @@ export default function MainScreen() {
           padding: wp(4),
           justifyContent: 'flex-end',
         }}>
-        <Text
-          style={{
-            color: StyleGuide.colors.white,
-            fontSize: hp(4.8),
-            fontFamily: 'Poppins-Bold',
-          }}>
+        <Text style={StyleGuide.OpeningHanding}>
           Let Your Favorite Food Find You
         </Text>
         <Text
@@ -39,11 +37,13 @@ export default function MainScreen() {
             color: StyleGuide.colors.light,
             fontSize: hp(2),
             fontFamily: 'Poppins-Regular',
+            top: hp(-2),
           }}>
           It is a long established fact that a reader will be distracted by the
           readable page when looking at
         </Text>
         <TouchableOpacity
+          onPress={() => navigation.push('Restaurant')}
           style={{
             backgroundColor: StyleGuide.colors.white,
             width: wp(92),
