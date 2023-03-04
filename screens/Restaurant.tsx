@@ -6,22 +6,30 @@ import {
   TouchableOpacity,
   TextInput,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 import StyleGuide from '../data/StyleGuide';
+import categories from '../data/Restaurant/DATA';
 
 const Restaurant = () => {
+  const [category, setCategory] = useState(1);
+  console.log('====================================');
+  console.log(categories[0]);
+  console.log('====================================');
   return (
-    <ScrollView>
+    <ScrollView
+      style={{
+        flex: 1,
+        paddingHorizontal: wp(4),
+        backgroundColor: StyleGuide.colors.white,
+      }}>
       <SafeAreaView
         style={{
-          flex: 1,
-          padding: wp(4),
-          backgroundColor: StyleGuide.colors.white,
+          paddingTop: wp(4),
         }}>
         <View
           style={{
@@ -79,7 +87,7 @@ const Restaurant = () => {
             alignItems: 'center',
             paddingHorizontal: wp(3),
             paddingVertical: wp(1.4),
-            borderRadius:10
+            borderRadius: 10,
           }}>
           <Image
             style={StyleGuide.iconSize}
@@ -89,9 +97,37 @@ const Restaurant = () => {
             placeholder="Want to .."
             placeholderTextColor={StyleGuide.colors.gray}
             style={{
-               flex:1, padding: 10, color:StyleGuide.colors.black}}
+              flex: 1,
+              padding: 10,
+              color: StyleGuide.colors.black,
+            }}
           />
         </View>
+        <View
+          style={{
+            marginVertical: hp(4),
+            paddingHorizontal: wp(2),
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+          }}>
+          {categories.map((item, index) => (
+            <TouchableOpacity onPress={() => setCategory(item.id)}>
+              <Text
+                style={[
+                  StyleGuide.FoodCategories,
+                  {
+                    color:
+                      category == item.id
+                        ? StyleGuide.colors.black
+                        : StyleGuide.colors.gray,
+                  },
+                ]}>
+                {item.title}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+        <View>{/* {categories[0]} */}</View>
       </SafeAreaView>
     </ScrollView>
   );
