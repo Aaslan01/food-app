@@ -21,6 +21,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import MainScreen from './screens/MainScreen';
 import Restaurant from './screens/Restaurant';
+import DetailScreen from './screens/DetailScreen';
 const Stack = createNativeStackNavigator();
 
 function App() {
@@ -36,6 +37,11 @@ function App() {
           <Stack.Screen
             name="Restaurant"
             component={Restaurant}
+            options={{header: () => null}}
+          />
+          <Stack.Screen
+            name="DetailScreen"
+            component={DetailScreen}
             options={{header: () => null}}
           />
         </Stack.Navigator>

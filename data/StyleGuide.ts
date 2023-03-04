@@ -24,8 +24,13 @@ const StyleGuide = {
     fontFamily: 'Poppins-Bold',
   },
   FoodCategories: {
-    color: 'rgb(120,120,120)',
+    color: '#000',
     fontSize: hp(2),
+    fontFamily: 'Poppins-Bold',
+  },
+  FoodDescription: {
+    color: '#000',
+    fontSize: hp(2.1),
     fontFamily: 'Poppins-Bold',
   },
 };
