@@ -5,6 +5,7 @@ import {
   ImageBackground,
   Touchable,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import React from 'react';
 import {useRoute} from '@react-navigation/native';
@@ -17,12 +18,10 @@ import StyleGuide from '../data/StyleGuide';
 import IconsButtons from '../component/IconsButtons';
 import {useNavigation} from '@react-navigation/native';
 import IconText from '../component/IconText';
+import FullButton from '../component/FullButton';
 const DetailScreen = () => {
   const navigation = useNavigation();
   const params = useRoute().params as any;
-  console.log('=========params===========================');
-  console.log(params);
-  console.log('====================================');
   return (
     <SafeAreaView>
       {/* Background Image with buttons */}
@@ -63,63 +62,109 @@ const DetailScreen = () => {
           borderTopEndRadius: 20,
           borderTopStartRadius: 20,
           paddingHorizontal: wp(4),
+          paddingBottom: hp(4),
+          paddingTop: hp(1),
         }}>
-        {/* Name and rating */}
-        <View
-          style={[
-            StyleGuide.fcic,
-            {
-              marginTop: hp(5),
-              justifyContent: 'space-between',
-            },
-          ]}>
-          <Text
-            numberOfLines={1}
-            style={[StyleGuide.SecondHanding, {width: wp(74)}]}>
-            {params.item.name}
-          </Text>
+        <ScrollView
+          showsVerticalScrollIndicator={false}>
+          {/* Name and rating */}
           <View
             style={[
               StyleGuide.fcic,
               {
-                backgroundColor: StyleGuide.colors.yellow,
-                paddingHorizontal: wp(2),
-                borderRadius: 4,
+                marginTop: hp(4),
+                justifyContent: 'space-between',
               },
             ]}>
-            <Image
-              style={{height: wp(4), width: wp(4)}}
-              source={require('../assets/icons/star.png')}
-            />
-            <Text style={[StyleGuide.FoodDescription, {alignSelf: 'center'}]}>
-              {' '}
-              {params.item.rating}
+            <Text
+              numberOfLines={1}
+              style={[StyleGuide.SecondHanding, {width: wp(74)}]}>
+              {params.item.name}
             </Text>
+            <View
+              style={[
+                StyleGuide.fcic,
+                {
+                  backgroundColor: StyleGuide.colors.yellow,
+                  paddingHorizontal: wp(2),
+                  borderRadius: 4,
+                },
+              ]}>
+              <Image
+                style={{height: wp(4), width: wp(4)}}
+                source={require('../assets/icons/star.png')}
+              />
+              <Text style={[StyleGuide.FoodDescription, {alignSelf: 'center'}]}>
+                {' '}
+                {params.item.rating}
+              </Text>
+            </View>
           </View>
-        </View>
-        {/* Times */}
-        <View
-          style={[
-            StyleGuide.fcic,
-            {justifyContent: 'space-between', marginHorizontal: wp(4)},
-          ]}>
-          <IconText
-            image={require('../assets/icons/clock.png')}
-            text={params.item.cooking_time}
-          />
-          <IconText
-            image={require('../assets/icons/scooter.png')}
-            text={params.item.del_time}
-          />
-          <IconText
-            image={require('../assets/icons/dining-room.png')}
-            text={params.item.time}
-          />
-        </View>
-        {/* ingredients */}
-        <Text style={[StyleGuide.SecondHanding, {fontSize: hp(3), marginTop: hp(4)}]}>
-          Ingredients
-        </Text>
+          {/* Times */}
+          <View
+            style={[
+              StyleGuide.fcic,
+              {justifyContent: 'space-between', marginHorizontal: wp(4)},
+            ]}>
+            <IconText
+              image={require('../assets/icons/clock.png')}
+              text={params.item.cooking_time}
+            />
+            <IconText
+              image={require('../assets/icons/scooter.png')}
+              text={params.item.del_time}
+            />
+            <IconText
+              image={require('../assets/icons/dining-room.png')}
+              text={params.item.time}
+            />
+          </View>
+          {/* ingredients */}
+          <Text
+            style={[
+              StyleGuide.SecondHanding,
+              {fontSize: hp(3), marginTop: hp(4)},
+            ]}>
+            Ingredients
+          </Text>
+          <View>
+            {params.item.ingredients.map((ingredient: [], index: number) => (
+              <View style={StyleGuide.fcic}>
+                <View
+                  style={{
+                    backgroundColor: StyleGuide.colors.gray,
+                    height: 8,
+                    width: 8,
+                    borderRadius: 20,
+                    marginHorizontal: wp(2),
+                  }}
+                />
+                <Text
+                  style={[
+                    StyleGuide.Ingredients,
+                    {color: StyleGuide.colors.gray},
+                  ]}>
+                  {ingredient.title}
+                </Text>
+              </View>
+            ))}
+          </View>
+          {/* Description */}
+          <Text style={[StyleGuide.SecondHanding, {fontSize: hp(3)}]}>
+            Description
+          </Text>
+          <Text
+            style={[StyleGuide.Ingredients, {color: StyleGuide.colors.gray}]}>
+            {params.item.description}
+          </Text>
+        </ScrollView>
+        {/* Order Button */}
+        <FullButton
+          text={'Chose this for '}
+          price={params.item.price}
+          textColor={StyleGuide.colors.white}
+          backgroundColor={StyleGuide.colors.black}
+        />
       </View>
     </SafeAreaView>
   );

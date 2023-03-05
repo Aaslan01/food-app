@@ -20,7 +20,7 @@ const IconText: React.FC<Props> = ({text, image}) => {
     },
       ]}>
       <Image style={{height: hp(3), width: hp(3), marginRight: wp(1)}} source={image} />
-      <Text style={[StyleGuide.SecondHanding, {fontSize: hp(2)}]}>{text}</Text>
+      <Text style={StyleGuide.Ingredients}>{text}</Text>
     </View>
   );
 };

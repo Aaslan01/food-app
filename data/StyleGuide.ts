@@ -27,6 +27,7 @@ const StyleGuide = {
     fontSize: hp(3.8),
     fontFamily: 'Poppins-Bold',
   },
+
   FoodCategories: {
     color: '#000',
     fontSize: hp(2),
@@ -35,6 +36,11 @@ const StyleGuide = {
   FoodDescription: {
     color: '#000',
     fontSize: hp(2.1),
+    fontFamily: 'Poppins-Bold',
+  },
+  Ingredients:{
+    color: '#000',
+    fontSize: hp(2),
     fontFamily: 'Poppins-Bold',
   },
 };

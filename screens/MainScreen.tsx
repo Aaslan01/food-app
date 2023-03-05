@@ -6,6 +6,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import {useNavigation} from '@react-navigation/native';
+import FullButton from '../component/FullButton';
 
 export default function MainScreen() {
   const navigation = useNavigation();
@@ -42,24 +43,7 @@ export default function MainScreen() {
           It is a long established fact that a reader will be distracted by the
           readable page when looking at
         </Text>
-        <TouchableOpacity
-          onPress={() => navigation.push('Restaurant')}
-          style={{
-            backgroundColor: StyleGuide.colors.white,
-            width: wp(92),
-            paddingVertical: hp(2.2),
-            borderRadius: 20,
-            alignItems: 'center',
-          }}>
-          <Text
-            style={{
-              color: StyleGuide.colors.black,
-              fontFamily: 'Poppins-Bold',
-              fontSize: hp(2),
-            }}>
-            Explore Now
-          </Text>
-        </TouchableOpacity>
+        <FullButton text={'Explore Now'} onPress={()=>navigation.push('Restaurant')}/>
       </View>
     </ImageBackground>
   );
