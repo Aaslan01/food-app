@@ -12,6 +12,10 @@ const StyleGuide = {
     light: 'rgb(240,240,240)',
     white: '#fff',
   },
+  fcic:{
+    flexDirection: 'row',
+    alignItems: 'center'
+},
   iconSize: {height: hp(4), width: hp(4)},
   OpeningHanding: {
     color: '#fff',
