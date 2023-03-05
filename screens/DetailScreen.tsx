@@ -3,8 +3,6 @@ import {
   Text,
   Image,
   ImageBackground,
-  Touchable,
-  TouchableOpacity,
   ScrollView,
 } from 'react-native';
 import React from 'react';

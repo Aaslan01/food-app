@@ -1,4 +1,4 @@
-import {View, Text, Image, TouchableOpacity, ImageSourcePropType} from 'react-native';
+import {Image, TouchableOpacity, ImageSourcePropType} from 'react-native';
 import React from 'react';
 import StyleGuide from '../data/StyleGuide';
 import {
