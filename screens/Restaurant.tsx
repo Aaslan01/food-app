@@ -23,15 +23,18 @@ const Restaurant = () => {
   return (
     <SafeAreaView
       style={{
-        paddingHorizontal: wp(4),
+        // paddingHorizontal: wp(4),
         backgroundColor: StyleGuide.colors.white,
       }}>
       <View
         style={{
           marginTop: Platform.OS == 'android' ? hp(2) : 0,
-          marginBottom: hp(0.2),
+          paddingBottom: hp(0.2),
+          borderBottomWidth: 1,
+          borderBottomColor: StyleGuide.colors.light,
           flexDirection: 'row',
           justifyContent: 'space-between',
+          paddingHorizontal: wp(4),
         }}>
         <View
           style={{
@@ -39,7 +42,7 @@ const Restaurant = () => {
             alignItems: 'center',
           }}>
           <Image
-            style={{height: hp(6), width: hp(6), borderRadius: 20}}
+            style={{height: hp(6), width: hp(6), borderRadius: 50}}
             source={require('../assets/restaurant/avatar.jpg')}
           />
           <Text
@@ -72,7 +75,11 @@ const Restaurant = () => {
           </TouchableOpacity>
         </View>
       </View>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={{
+          paddingHorizontal: wp(4),
+        }}>
         <Text
           style={[StyleGuide.SecondHanding, {width: wp(70), marginTop: hp(2)}]}>
           What would you like to order
