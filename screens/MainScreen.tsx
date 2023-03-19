@@ -38,7 +38,7 @@ export default function MainScreen() {
             color: StyleGuide.colors.light,
             fontSize: hp(2),
             fontFamily: 'Poppins-Regular',
-            top: hp(-2),
+            // top: hp(-2),
           }}>
           It is a long established fact that a reader will be distracted by the
           readable page when looking at
