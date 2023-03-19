@@ -1,16 +1,16 @@
 import {View, Text, TouchableOpacity, Image} from 'react-native';
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
-    heightPercentageToDP as hp,
-    widthPercentageToDP as wp,
-  } from 'react-native-responsive-screen';
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from 'react-native-responsive-screen';
 import StyleGuide from '../data/StyleGuide';
 import categories from '../data/Restaurant/DATA';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 const FoodCategories = () => {
-    const navigation = useNavigation()
-    const [category, setCategory] = useState(0);
+  const navigation = useNavigation();
+  const [category, setCategory] = useState(0);
   return (
     <View>
       <View
@@ -21,7 +21,7 @@ const FoodCategories = () => {
           justifyContent: 'space-between',
         }}>
         {categories.map((item, index) => (
-          <TouchableOpacity onPress={() => setCategory(index)}>
+          <TouchableOpacity key={index} onPress={() => setCategory(index)}>
             <Text
               style={[
                 StyleGuide.FoodCategories,
@@ -46,6 +46,7 @@ const FoodCategories = () => {
         }}>
         {categories[category].recipes.map((item: any, index: number) => (
           <TouchableOpacity
+            key={index}
             onPress={() =>
               navigation.push('DetailScreen', {
                 item: item,
