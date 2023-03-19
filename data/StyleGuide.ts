@@ -21,6 +21,7 @@ const StyleGuide = {
     color: '#fff',
     fontSize: hp(4.8),
     fontFamily: 'Poppins-Bold',
+    lineHeight: hp(6)
   },
   SecondHanding: {
     color: '#000',
@@ -42,6 +43,11 @@ const StyleGuide = {
     color: '#000',
     fontSize: hp(2),
     fontFamily: 'Poppins-Bold',
+  },
+  Description:{
+    color: '#000',
+    fontSize: hp(2),
+    fontFamily: 'Poppins-SemiBold',
   },
 };
 

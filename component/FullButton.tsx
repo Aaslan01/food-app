@@ -8,7 +8,7 @@ import {
 
 interface Props {
   text: string;
-  price: string;
+  price?: string;
   onPress?: () => void;
   backgroundColor?: string;
   textColor?: string;

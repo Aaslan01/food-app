@@ -1,4 +1,4 @@
-import {View, Text, ImageBackground} from 'react-native';
+import {View, Text, ImageBackground, Platform} from 'react-native';
 import React from 'react';
 import StyleGuide from '../data/StyleGuide';
 import {
@@ -26,7 +26,6 @@ export default function MainScreen() {
           height: hp(96),
           width: wp(100),
           position: 'absolute',
-          zIndex: 2,
           padding: wp(4),
           justifyContent: 'flex-end',
         }}>
@@ -38,12 +37,16 @@ export default function MainScreen() {
             color: StyleGuide.colors.light,
             fontSize: hp(2),
             fontFamily: 'Poppins-Regular',
-            // top: hp(-2),
+            top: Platform.OS == 'android' ? hp(-2) : 0,
+            marginBottom: Platform.OS == 'ios' ? hp(2) : 0,
           }}>
           It is a long established fact that a reader will be distracted by the
           readable page when looking at
         </Text>
-        <FullButton text={'Explore Now'} onPress={()=>navigation.push('Restaurant')}/>
+        <FullButton
+          text={'Explore Now'}
+          onPress={() => navigation.push('Restaurant')}
+        />
       </View>
     </ImageBackground>
   );

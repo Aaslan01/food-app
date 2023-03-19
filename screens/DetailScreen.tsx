@@ -4,6 +4,7 @@ import {
   Image,
   ImageBackground,
   ScrollView,
+  Platform,
 } from 'react-native';
 import React from 'react';
 import {useRoute} from '@react-navigation/native';
@@ -21,7 +22,7 @@ const DetailScreen = () => {
   const navigation = useNavigation();
   const params = useRoute().params as any;
   return (
-    <SafeAreaView>
+    <View>
       {/* Background Image with buttons */}
       <ImageBackground
         style={{
@@ -42,12 +43,6 @@ const DetailScreen = () => {
             onPress={() => null}
             address={require('../assets/icons/share.png')}
           />
-          {/* <TouchableOpacity>
-            <Image
-              style={StyleGuide.iconDetails}
-              source={require('../assets/icons/share.png')}
-            />
-          </TouchableOpacity> */}
         </View>
       </ImageBackground>
       {/* white part */}
@@ -102,7 +97,7 @@ const DetailScreen = () => {
           <View
             style={[
               StyleGuide.fcic,
-              {justifyContent: 'space-between', marginHorizontal: wp(4)},
+              {justifyContent: 'space-between', marginHorizontal: wp(2)},
             ]}>
             <IconText
               image={require('../assets/icons/clock.png')}
@@ -152,7 +147,7 @@ const DetailScreen = () => {
             Description
           </Text>
           <Text
-            style={[StyleGuide.Ingredients, {color: StyleGuide.colors.gray}]}>
+            style={[StyleGuide.Description, {color: StyleGuide.colors.gray}]}>
             {params.item.description}
           </Text>
         </ScrollView>
@@ -164,7 +159,7 @@ const DetailScreen = () => {
           backgroundColor={StyleGuide.colors.black}
         />
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
